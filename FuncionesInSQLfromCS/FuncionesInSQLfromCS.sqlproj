@@ -63,11 +63,15 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="INDAABIN_Utilerias">
+      <HintPath>..\..\INDAABIN_Utilerias\INDAABIN_Utilerias\bin\Debug\INDAABIN_Utilerias.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RegexFind.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Instalation and use CS  SQL function.sql" />
+    <None Include="FuncionesInSQLfromCS.publish.xml" />
   </ItemGroup>
 </Project>

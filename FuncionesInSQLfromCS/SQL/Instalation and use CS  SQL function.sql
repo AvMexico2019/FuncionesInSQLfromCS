@@ -51,7 +51,7 @@ go
 -- El proceso de instalar una función C# en SQL tiene dos pasos
 -- 1) crear un assembly que es el equivalente de decirle a SQL donde está el dll que va a usar
 -- 2) Crear las funciones que estan declaradas como [Microsoft.SqlServer.Server.SqlFunction] en el dll
-
+-- La ruta 'Z:\FuncionesInSQLfromCS.dll' corresponde a la ruta donde esta el dll en el servidor que corre el sql server
 CREATE ASSEMBLY [FuncionesInSQLfromCS]
 AUTHORIZATION [dbo]
 FROM 'Z:\FuncionesInSQLfromCS.dll'
