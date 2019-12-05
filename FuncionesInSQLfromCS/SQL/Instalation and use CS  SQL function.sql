@@ -19,6 +19,26 @@ GO
 --GO
 
 -- Antes que otra cosa es necesario remover las funciones del asssembly
+IF EXISTS ( SELECT 1
+			FROM	Information_schema.Routines
+            WHERE   Specific_schema = 'dbo'
+                    AND specific_name = 'StringRegexFind'
+                    AND Routine_Type = 'FUNCTION' )
+Begin
+	Drop Function [dbo].[StringRegexFind]
+end
+go
+
+IF EXISTS ( SELECT 1
+			FROM	Information_schema.Routines
+            WHERE   Specific_schema = 'dbo'
+                    AND specific_name = 'SelloDigitalContratos'
+                    AND Routine_Type = 'FUNCTION' )
+Begin
+	Drop Function [dbo].[SelloDigitalContratos]
+end
+go
+
 IF EXISTS ( SELECT  1
             FROM    Information_schema.Routines
             WHERE   Specific_schema = 'dbo'
@@ -67,6 +87,17 @@ CREATE FUNCTION dbo.EDS(@string AS nvarchar(max)) RETURNS nvarchar(max)
 AS EXTERNAL NAME
 [FuncionesInSQLfromCS].[UserDefinedFunctions].[EDS]
 go
+
+CREATE FUNCTION dbo.SelloDigitalContratos(@string AS nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME
+[FuncionesInSQLfromCS].[UserDefinedFunctions].[SelloDigitalContratos]
+go
+
+CREATE FUNCTION dbo.StringRegexFind(@regex AS nvarchar(max), @texto AS nvarchar(max)) RETURNS nvarchar(max)
+AS EXTERNAL NAME
+[FuncionesInSQLfromCS].[UserDefinedFunctions].[StringRegexFind]
+go
+
 
 --
 --SELECT [dbo].[fncRegexFind]('DF','DF')
